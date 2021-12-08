@@ -1,9 +1,3 @@
-var playlists = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-var output = "";
-
-playlists.forEach(playlist => {
-    output += `<img src='./assets/images/100placeholder.png' class='m-1' style='height: 100px; width: 100px' onclick='window.location.href='./player.html''/>`;
-});
 const clientId = "7a0f37913ee7411a91763141d13810b5";
 const redirectUri = "http://127.0.0.1:5500/recsPage.html";
 let redirect = () => {
@@ -15,10 +9,10 @@ function getCode() {
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     code = urlParams.get("code");
-    token(code);
+    getToken(code);
 }
 
-let token = code => {
+let getToken = code => {
     fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
@@ -33,23 +27,25 @@ let token = code => {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            queryPlaylists(data.access_token);
+            window.sessionStorage.setItem("token", data.access_token);
+            return data.access_token;
         })
         .catch(err => {
             console.log(err);
         });
 };
 
-var testWeatherSearch = "cloudy";
+var testWeatherSearch = "rainy";
 
-function queryPlaylists(token) {
-    var bucket = "";
+function queryPlaylists() {
+    var output = "";
+    var token = window.sessionStorage.getItem("token");
     fetch(
         `https://api.spotify.com/v1/search?query=${testWeatherSearch}&type=playlist&include_external=audio&offset=0&limit=50`,
         {
             method: "GET",
             headers: {
-                Authorization: `Bearer ${token}`,
+                Authorization: `Bearer ${token}}`,
                 "Content-Type": "application/json",
             },
         }
@@ -57,11 +53,12 @@ function queryPlaylists(token) {
         .then(response => response.json())
         .then(data => {
             console.log(data.playlists.items);
+
             var playlists = data.playlists.items;
             playlists.forEach(i => {
-                bucket += `<a href="${i.external_urls.spotify}" target="_blank"><img src="${i.images[0].url}" class='m-1' style='height: 150px; width: 150px' onclick='window.location.href='./player.html''/></a>`;
+                output += `<a href="${i.external_urls.spotify}" target="_blank"><img src="${i.images[0].url}" class='m-1' style='height: 150px; width: 150px' onclick='window.location.href='./player.html''/></a>`;
             });
-            $(".playlists").html(bucket);
+            $(".playlists").html(output);
         })
         .catch(err => {
             console.log(err);
