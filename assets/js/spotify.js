@@ -28,14 +28,13 @@ let getToken = code => {
         .then(data => {
             console.log(data);
             window.sessionStorage.setItem("token", data.access_token);
-            return data.access_token;
         })
         .catch(err => {
             console.log(err);
         });
 };
 
-var testWeatherSearch = "rainy";
+var testWeatherSearch = "windy";
 
 function queryPlaylists() {
     var output = "";
@@ -56,7 +55,7 @@ function queryPlaylists() {
 
             var playlists = data.playlists.items;
             playlists.forEach(i => {
-                output += `<a href="${i.external_urls.spotify}" target="_blank"><img src="${i.images[0].url}" class='m-1' style='height: 150px; width: 150px' onclick='window.location.href='./player.html''/></a>`;
+                output += `<a href="${i.external_urls.spotify}" target="_blank" title="${i.name}"><img src="${i.images[0].url}" class='m-1' style='height: 150px; width: 150px' onclick='window.location.href='./player.html''/></a>`;
             });
             $(".playlists").html(output);
         })
