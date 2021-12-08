@@ -1,24 +1,20 @@
-var playlists = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+/* var playlists = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 var output = "";
 
 playlists.forEach(playlist => {
-<<<<<<< HEAD
-    output += `<img src='./assets/images/100placeholder.png' class='m-1' style='height: 100px; width: 100px' onclick='window.location.href='./player.html''/>`;
-});
-const clientId = "7a0f37913ee7411a91763141d13810b5";
-const redirectUri = "http://127.0.0.1:5500/recsPage.html";
-let redirect = () => {
-    location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
-};
-=======
     output+= `<img src="./assets/images/100placeholder.png" class="m-1" style="height: 100px; width: 100px" onclick="window.location.href='./player.html'"/>`;
 })
->>>>>>> 1bf4d2e8cc11166230cb49c0eeb7274ff465d39e
-
+ */
 // var data = {
 //     client_id: clientId,
 //     code_verifier:
 // }
+
+const clientId = "7a0f37913ee7411a91763141d13810b5";
+const redirectUri = "http://127.0.0.1:5501/recsPage.html";
+let redirect = () => {
+    location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
+};
 
 function getCode() {
     let code = null;
@@ -50,7 +46,7 @@ let token = code => {
         });
 };
 
-var testWeatherSearch = "cloudy";
+var testWeatherSearch = "sunny";
 
 function queryPlaylists(token) {
     var bucket = "";
