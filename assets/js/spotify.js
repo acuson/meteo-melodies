@@ -34,13 +34,13 @@ let getToken = code => {
         });
 };
 
-var testWeatherSearch = "weather+cloudy";
+var testWeatherSearch = "fart";
 
 function queryPlaylists() {
     var output = "";
     var token = window.sessionStorage.getItem("token");
     fetch(
-        `https://api.spotify.com/v1/search?query=${testWeatherSearch}&type=playlist&include_external=audio&offset=0&limit=50`,
+        `https://api.spotify.com/v1/search?query=weather+${testWeatherSearch}&type=playlist&include_external=audio&offset=0&limit=50`,
         {
             method: "GET",
             headers: {
