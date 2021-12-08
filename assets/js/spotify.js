@@ -34,7 +34,7 @@ let getToken = code => {
         });
 };
 
-var testWeatherSearch = "dry";
+var testWeatherSearch = "weather+cloudy";
 
 function queryPlaylists() {
     var output = "";
@@ -49,9 +49,16 @@ function queryPlaylists() {
             },
         }
     )
-        .then(response => response.json())
+        .then(response => {
+            if (response.status === 401) {
+                getToken();
+                setTimeout(() => {
+                    queryPlaylists()
+                }, 1000);
+            }
+            return response.json()})
         .then(data => {
-            console.log(data.playlists.items);
+            // console.log(data.playlists.items);
 
             var playlists = data.playlists.items;
             playlists.forEach(i => {
