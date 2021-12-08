@@ -1,6 +1,6 @@
 const clientId = "7a0f37913ee7411a91763141d13810b5";
 const redirectUri = "http://127.0.0.1:5500/recsPage.html";
-let redirect = () => {
+let authorize = () => {
     location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
 };
 
@@ -34,7 +34,7 @@ let getToken = code => {
         });
 };
 
-var testWeatherSearch = "windy";
+var testWeatherSearch = "rainy";
 
 function queryPlaylists() {
     var output = "";
@@ -43,10 +43,10 @@ function queryPlaylists() {
         `https://api.spotify.com/v1/search?query=${testWeatherSearch}&type=playlist&include_external=audio&offset=0&limit=50`,
         {
             method: "GET",
-            headers: {
-                Authorization: `Bearer ${token}}`,
-                "Content-Type": "application/json",
-            },
+            // headers: {
+            //     Authorization: `Bearer ${token}}`,
+            //     "Content-Type": "application/json",
+            // },
         }
     )
         .then(response => response.json())
@@ -55,7 +55,7 @@ function queryPlaylists() {
 
             var playlists = data.playlists.items;
             playlists.forEach(i => {
-                output += `<a href="${i.external_urls.spotify}" target="_blank" title="${i.name}"><img src="${i.images[0].url}" class='m-1' style='height: 150px; width: 150px' onclick='window.location.href='./player.html''/></a>`;
+                output += `<a href="${i.external_urls.spotify}" target="_blank" title="${i.name}"><img src="${i.images[0].url}" class='m-1' style='height: 150px; width: 150px' alt="${i.name}" onclick='window.location.href='./player.html''/></a>`;
             });
             $(".playlists").html(output);
         })
