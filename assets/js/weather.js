@@ -9,12 +9,11 @@ weather.temperature = {
     unit : "fahrenheit"
 }
 function displayWeather(){    
-    temperatureEl.innerHTML = temperature.value;
-    descriptionEl.innerHTML =
-    iconEl.innerHTML = 
-    cityEl.innerHTML = console.log("stop giving me freaking errors")
+    temperatureEl.innerHTML = temperature.value + "°F";
+    descriptionEl.innerHTML = weather.description;
+    iconEl.innerHTML = `<img src="assets/icons/${weather.icon}.png"/>`;
+    cityEl.innerHTML = weather.city;
 }
-    
 
 document.getElementById("submit").addEventListener("click", function(){
     var zipCode = document.getElementById("zipCode")
@@ -26,14 +25,16 @@ console.log(zipCode.value)
     }).then(data=> {
         console.log(data)
         console.log(Math.floor(data.main.temp));
+        temperature.value = Math.floor(data.main.temp);
         console.log(data.weather[0].description);
+        weather.description = data.weather[0].description;
         console.log(data.weather[0].icon);
+        weather.icon = data.weather[0].icon;
         console.log(data.name);
+        weather.city = data.name;
     }) 
     .then(function(){
         displayWeather();
     })
 })
-// .then (displayWeather =>{
-//     displayWeather();
-// })
+
