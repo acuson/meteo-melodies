@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,42 +7,27 @@
         <title>MeteoMelodies</title>
         <link rel="stylesheet" href="./assets/css/bootstrapQuartz.css" />
         <link rel="stylesheet" href="./assets/css/style.css" />
+        <link rel="stylesheet" href="./assets/css/trial.css" />
     </head>
     <body>
         <h1>MeteoMelodies</h1>
         <div class="search">
-            <input type="text" placeholder="Zip Code" name="search" />
-            <button type="submit">Submit</button>
+            <input
+                id="zipCode"
+                type="text"
+                placeholder="Zip Code"
+                name="search"
+            />
+            <button id="submit" type="submit">Submit</button>
         </div>
-
-        <script src="./assets/js/spotify.js"></script>
-        <script src="./assets/js/weather.js"></script>
+        <div class="container">
+            <div id="data"></div>
+            <div id="temperature"></div>
+            <div id="icon"></div>
+            <div id="description"></div>
+            <div id="city"></div>
+        </div>
     </body>
+    <script src="assets/js/weather.js"></script>
 </html>
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MeteoMelodies</title>
-    <link rel="stylesheet" href="./assets/css/bootstrapQuartz.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <link rel="stylesheet" href="./assets/css/trial.css">
-</head>
-<body>
-    <h1>MeteoMelodies</h1>
-    <div class="search">
-        <input id="zipCode" type="text" placeholder="Zip Code" name="search">
-            <button id= "submit" type="submit">Submit</button>
-    </div>
-<div class = container>
-    <div id = "data"></div>
-    <div id = "temperature"></div>
-    <div id = "icon"></div>
-    <div id = "description"></div>
-    <div id = "city"></div>
-</div>
-</body>
-<script src="assets/js/weather.js"></script>
-</html>
->>>>>>> d4deda0e8d2113b723913e5ac50388dc4697c3bd
+<!--  -->
