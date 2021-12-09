@@ -30,17 +30,10 @@ console.log(zipCode.value)
         console.log(data.weather[0].icon);
         console.log(data.name);
     }) 
+    .then(function(){
+        displayWeather();
+    })
 })
 // .then (displayWeather =>{
 //     displayWeather();
 // })
-// const weather = data;
-// weather.temperature = {
-//     unit : "celsius"
-// }
-// displayWeather(){
-//     temperatureEl.innerHTML = temperature.value;
-//     descriptionEl.innerHTML =
-//     iconEl.innerHTML = 
-//     cityEl.innerHTML = 
-//     }
