@@ -1,31 +1,11 @@
-<<<<<<< HEAD
-/* var playlists = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-var output = "";
-
-playlists.forEach(playlist => {
-    output+= `<img src="./assets/images/100placeholder.png" class="m-1" style="height: 100px; width: 100px" onclick="window.location.href='./player.html'"/>`;
-})
- */
-// var data = {
-//     client_id: clientId,
-//     code_verifier:
-// }
-=======
 const clientId = "7a0f37913ee7411a91763141d13810b5";
 const redirectUri = "http://127.0.0.1:5500/recsPage.html"; //Will need to be Github page
 let authorize = () => {
     location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
 };
->>>>>>> spotify
-
-const clientId = "7a0f37913ee7411a91763141d13810b5";
-const redirectUri = "http://127.0.0.1:5501/recsPage.html";
-let redirect = () => {
-    location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
-};
 
 function getCode() {
-    // Help from this YouTube video: https://www.youtube.com/watch?v=1vR3m0HupGI&t=636s
+    //  Help from this YouTube video: https://www.youtube.com/watch?v=1vR3m0HupGI&t=636s
     let code = null;
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString); // Constructor
@@ -55,13 +35,10 @@ let getToken = code => {
         });
 };
 
-<<<<<<< HEAD
-var testWeatherSearch = "sunny";
-=======
 var testWeatherSearch = "fart";
->>>>>>> spotify
 
 function queryPlaylists() {
+    git;
     var output = "";
     var token = window.sessionStorage.getItem("token");
     fetch(
