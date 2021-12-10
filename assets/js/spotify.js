@@ -81,11 +81,18 @@ function queryPlaylists() {
                 console.log(uri)
                 
 
-                output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} style="height: 150px; width: 150px" onclick="selectedPlaylist()"/>`;
+                output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
             });
             $(".playlists").html(output); // Renders array of playlists to div
         })
         .catch(err => {
             console.log(err);
         });
+}
+
+function selectedPlaylist(event) {
+    window.location.href ='../player.html'
+    var uri = event.target.dataset.uri
+
+    $('.player').html(`<iframe src="https://open.spotify.com/embed/${uri}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
 }
