@@ -81,7 +81,7 @@ function queryPlaylists() {
                 console.log(uri)
                 
 
-                output += `<img src="${i.images[0].url}" class="m-1" data-uri=${uri} style="height: 150px; width: 150px" onclick="selectedPlaylist()"/>`;
+                output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} style="height: 150px; width: 150px" onclick="selectedPlaylist()"/>`;
             });
             $(".playlists").html(output); // Renders array of playlists to div
         })

@@ -3,7 +3,7 @@ const descriptionEl = document.getElementById("description");
 const iconEl = document.getElementById("icon");
 const cityEl = document.getElementById("city");
 
-const weather = data;
+const weather = data; 
 weather.temperature = {
     unit: "fahrenheit",
 };
