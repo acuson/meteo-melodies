@@ -35,12 +35,18 @@ let getToken = code => {
         });
 };
 
-var weatherSearch = window.localStorage.getItem("search");
-var search = weatherSearch.replace(" ", "+");
+function delayPlaylists() {
+    setTimeout(() => {
+        queryPlaylists();
+    }, 1000);
+}
 
 function queryPlaylists() {
+    var weatherSearch = window.localStorage.getItem("search");
+    var search = weatherSearch.replace(" ", "+");
     var output = "";
     var token = window.sessionStorage.getItem("token");
+    console.log(search);
     fetch(
         `https://api.spotify.com/v1/search?query=${search}+weather&type=playlist&include_external=audio&offset=0&limit=50`,
         {

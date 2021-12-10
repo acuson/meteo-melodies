@@ -14,13 +14,21 @@ function displayWeather() {
     cityEl.innerHTML = weather.city;
 }
 // document.getElementById("submit").addEventListener("click",
-function fetchWeather() {
-    window.location.href = "../../recsPage.html";
+
+function switchPage() {
     var zipCode = document.getElementById("zipCode");
-    console.log(zipCode.value);
+    localStorage.setItem("zip", zipCode.value);
+    window.location.href = "../../recsPage.html";
+}
+
+function fetchWeather() {
+    // console.log(zipCode.value);
+
+    var Zip = localStorage.getItem("zip");
+    console.log(Zip);
     fetch(
         "https://api.openweathermap.org/data/2.5/weather?zip=" +
-            zipCode.value +
+            Zip +
             ",US&appid=1a569bb7d37723f9bf3b10e34026f005&units=imperial"
     )
         .then(response => {

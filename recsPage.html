@@ -11,29 +11,24 @@
             crossorigin="anonymous"
         />
         <link rel="stylesheet" href="./assets/css/bootstrapQuartz.css" />
-
+        <link rel="stylesheet" href="./assets/css/trial.css" />
         <title>MeteoMelodies</title>
     </head>
-    <body onload="queryPlaylists()">
+    <body onload="fetchWeather(); delayPlaylists()">
         <div class="container d-flex justify-content-center mb-5 mt-5">
             <div class="card col-lg-10 my-auto">
                 <h1 class="mt-2 text-center">Meteo Melodies</h1>
                 <div class="row">
                     <div class="col-lg-3 m-2">
                         <h2>Weather</h2>
-                        <div class="container">
-                            <div id="data"></div>
-                            <div id="temperature"></div>
-                            <div id="icon"></div>
-                            <div id="description"></div>
-                            <div id="city"></div>
-                        </div>
+
                         <div class="d-sm-flex d-lg-inline">
-                            <img src="./assets/images/200placeholder.png" />
-                            <!--replace with div and icon from weather API-->
-                            <div class="text flex-column align-items-sm-center">
-                                <p>Temperature:</p>
-                                <p>Conditions:</p>
+                            <div class="container weather-container">
+                                <div id="data"></div>
+                                <div id="temperature"></div>
+                                <div id="icon"></div>
+                                <div id="description"></div>
+                                <div id="city"></div>
                             </div>
                         </div>
                     </div>
