@@ -68,15 +68,36 @@ function queryPlaylists() {
             return response.json();
         })
         .then(data => {
-            // console.log(data.playlists.items);
+            console.log(data.playlists.items);
+            
 
             var playlists = data.playlists.items;
             playlists.forEach(i => {
-                output += `<a href="${i.external_urls.spotify}" target="_blank" title="${i.name}"><img src="${i.images[0].url}" class='m-1' style='height: 150px; width: 150px' onclick='window.location.href='./player.html''/></a>`;
+
+                var fullUri = i.uri;
+                var uriArr = fullUri.split(':')
+                uriArr.shift()
+                var uri =uriArr.join('/')
+                console.log(uri)
+                
+
+                output += `<img id='img' src="${i.images[0].url}" class="m-1" data-uri="${uri}" style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
             });
             $(".playlists").html(output); // Renders array of playlists to div
         })
         .catch(err => {
             console.log(err);
         });
+}
+
+
+function selectedPlaylist(event){
+    console.log(event.target)
+    var uri = event.target.dataset('uri')
+    console.log('hello')
+    console.log(uri)
+
+    $('.player').html = `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+
+    window.location.href = '../../player.html'
 }
