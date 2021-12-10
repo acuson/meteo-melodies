@@ -10,23 +10,27 @@
         <link rel="stylesheet" href="./assets/css/trial.css" />
     </head>
     <body>
-        <h1>MeteoMelodies</h1>
-        <div class="search">
-            <input
-                id="zipCode"
-                type="text"
-                placeholder="Zip Code"
-                name="search"
-            />
-            <button id="submit" type="submit">Submit</button>
-        </div>
-        <div class="container">
-            <div id="data"></div>
-            <div id="temperature"></div>
-            <div id="icon"></div>
-            <div id="description"></div>
-            <div id="city"></div>
-        </div>
+        <main class="card col-lg-10 my-auto">
+            <h1>MeteoMelodies</h1>
+            <div class="search">
+                <input
+                    id="zipCode"
+                    type="text"
+                    placeholder="Zip Code"
+                    name="search"
+                />
+                <button id="submit" class="btn btn-info" type="submit">
+                    Submit
+                </button>
+            </div>
+            <div class="container">
+                <div id="data"></div>
+                <div id="temperature"></div>
+                <div id="icon"></div>
+                <div id="description"></div>
+                <div id="city"></div>
+            </div>
+        </main>
     </body>
     <script src="assets/js/weather.js"></script>
 </html>

@@ -35,14 +35,14 @@ let getToken = code => {
         });
 };
 
-var testWeatherSearch = "fart";
+var weatherSearch = window.localStorage.getItem("search");
+var weather = weatherSearch.replace(" ", "+");
 
 function queryPlaylists() {
-    git;
     var output = "";
     var token = window.sessionStorage.getItem("token");
     fetch(
-        `https://api.spotify.com/v1/search?query=weather+${testWeatherSearch}&type=playlist&include_external=audio&offset=0&limit=50`,
+        `https://api.spotify.com/v1/search?query=${weather}+weather&type=playlist&include_external=audio&offset=0&limit=50`,
         {
             method: "GET",
             headers: {
