@@ -1,0 +1,41 @@
+.container{
+    background-color: whitesmoke;
+    width: 25%;
+    color: black;
+    font-family: sans-serif;
+    display: block;
+    margin: 0 auto;
+    padding: 5px;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+
+}
+
+#description{
+    display: inline-flex;
+    text-align: center;
+    font-size: 16px;
+    /* padding: 3px; */
+    color: navy;
+    
+}
+
+#city{
+    text-align: center;
+    font-size: 20px;
+    color: navy;
+}
+
+#temperature{
+    font-size: 40px;
+    float: right;
+    color: navy;
+    display: inline-flex;
+}
+
+#icon{
+    text-align: center;
+    font-size: 60px;
+}
+
