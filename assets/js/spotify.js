@@ -36,13 +36,13 @@ let getToken = code => {
 };
 
 var weatherSearch = window.localStorage.getItem("search");
-var weather = weatherSearch.replace(" ", "+");
+var search = weatherSearch.replace(" ", "+");
 
 function queryPlaylists() {
     var output = "";
     var token = window.sessionStorage.getItem("token");
     fetch(
-        `https://api.spotify.com/v1/search?query=${weather}+weather&type=playlist&include_external=audio&offset=0&limit=50`,
+        `https://api.spotify.com/v1/search?query=${search}+weather&type=playlist&include_external=audio&offset=0&limit=50`,
         {
             method: "GET",
             headers: {

@@ -1,28 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MeteoMelodies</title>
-    <link rel="stylesheet" href="./assets/css/bootstrapQuartz.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-    <h1>MeteoMelodies</h1>
-    <div class="container d-flex justify-content-center mb-5 mt-5">
-        <h2>Enter your Zip Code</h2>
-    </div>
-    <div class="container d-flex justify-content-center mb-5 mt-5">
-        <div class="card d-flex">
-            <div class="card-header"></div>
-            <div class="card-body m-2 d-flex justify-content-center">
-                <input class="form-control"type="text" placeholder="Zip Code" name="search">
-                <button class="btn btn-primary m-1" type="submit" onclick="window.location.href='.recsPage.html'">Submit</button>
-            </div>
-            <div class="card-footer"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MeteoMelodies</title>
+        <link rel="stylesheet" href="./assets/css/bootstrapQuartz.css" />
+        <link rel="stylesheet" href="./assets/css/style.css" />
+    </head>
+    <body>
+        <h1>MeteoMelodies</h1>
+        <div class="container d-flex justify-content-center mb-5 mt-5">
+            <h2>Enter your Zip Code</h2>
         </div>
-    </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</body>
+        <div class="container d-flex justify-content-center mb-5 mt-5">
+            <div class="card d-flex">
+                <div class="card-header"></div>
+                <div class="card-body m-2 d-flex justify-content-center">
+                    <input
+                        class="form-control"
+                        id="zipCode"
+                        type="text"
+                        placeholder="Zip Code"
+                        name="search"
+                    />
+                    <button
+                        class="btn btn-primary m-1"
+                        id="submit"
+                        type="submit"
+                        onclick="fetchWeather()"
+                    >
+                        Submit
+                    </button>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="./assets/js/weather.js"></script>
+    </body>
 </html>

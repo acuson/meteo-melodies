@@ -13,8 +13,9 @@ function displayWeather() {
     iconEl.innerHTML = `<img src="assets/icons/${weather.icon}.png"/>`;
     cityEl.innerHTML = weather.city;
 }
-
-document.getElementById("submit").addEventListener("click", function () {
+// document.getElementById("submit").addEventListener("click",
+function fetchWeather() {
+    window.location.href = "../../recsPage.html";
     var zipCode = document.getElementById("zipCode");
     console.log(zipCode.value);
     fetch(
@@ -44,4 +45,4 @@ document.getElementById("submit").addEventListener("click", function () {
             // console.log(data.weather[0].main);
             localStorage.setItem("search", main);
         });
-});
+}
