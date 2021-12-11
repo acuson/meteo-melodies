@@ -69,17 +69,14 @@ function queryPlaylists() {
         })
         .then(data => {
             console.log(data.playlists.items);
-            
 
             var playlists = data.playlists.items;
             playlists.forEach(i => {
-
                 var fullUri = i.uri;
-                var uriArr = fullUri.split(':')
-                uriArr.shift()
-                var uri =uriArr.join('/')
-                console.log(uri)
-                
+                var uriArr = fullUri.split(":");
+                uriArr.shift();
+                var uri = uriArr.join("/");
+                // console.log(uri);
 
                 output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
             });
@@ -90,9 +87,16 @@ function queryPlaylists() {
         });
 }
 
-function selectedPlaylist(event) {
-    window.location.href ='../player.html'
-    var uri = event.target.dataset.uri
+$(".playlists").click(e => {
+    console.log(e.target.dataset.uri);
+    selectedPlaylist(e.target.dataset.uri);
+});
 
-    $('.player').html(`<iframe src="https://open.spotify.com/embed/${uri}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`)
+function selectedPlaylist(uri) {
+    // window.location.href ='../player.html'
+    // var uri = event.target.dataset.uri
+
+    $(".playlists").html(
+        `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="225" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+    );
 }
