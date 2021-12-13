@@ -3,6 +3,7 @@ $(document).ready(function() {
 });
 
 //The idea: when I click on a playlist, the player shows up and btnEl appends to container
+//Copied this from player.js// 
 $(".playlists").click(e => {
     console.log(e.target.dataset.uri);
     selectedPlaylist(e.target.dataset.uri);
