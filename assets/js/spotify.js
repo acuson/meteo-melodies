@@ -78,7 +78,7 @@ function queryPlaylists() {
                 var uri = uriArr.join("/");
                 // console.log(uri);
 
-                output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
+                output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} data-name=${i.name} style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
             });
             $(".playlists").html(output); // Renders array of playlists to div
         })
@@ -89,12 +89,12 @@ function queryPlaylists() {
 
 $(".playlists").click(e => {
     console.log(e.target.dataset.uri);
-    selectedPlaylist(e.target.dataset.uri);
+    selectedPlaylist(e.target.dataset.uri, e.target.dataset.name);
 });
 
-function selectedPlaylist(uri) {
-    // window.location.href ='../player.html'
-    // var uri = event.target.dataset.uri
+function selectedPlaylist(uri, playlistName) {
+    
+    $('#title').html(`Playing "${playlistName}"`)
 
     $(".player").html(
         `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="225" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
@@ -104,6 +104,11 @@ function selectedPlaylist(uri) {
     
     $('#recs').css('visibility', 'hidden')
     $('#player').css('visibility', 'visible')
+}
+
+function diffPlaylist(){
+    $('#recs').css('visibility', 'visible')
+    $('#player').css('visibility', 'hidden')
 }
 
 
