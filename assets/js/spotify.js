@@ -96,7 +96,14 @@ function selectedPlaylist(uri) {
     // window.location.href ='../player.html'
     // var uri = event.target.dataset.uri
 
-    $(".playlists").html(
+    $(".player").html(
         `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="225" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+        
+
     );
+    
+    $('#recs').css('visibility', 'hidden')
+    $('#player').css('visibility', 'visible')
 }
+
+

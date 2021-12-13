@@ -8,10 +8,10 @@ weather.temperature = {
     unit: "fahrenheit",
 };
 function displayWeather() {
-    temperatureEl.innerHTML = temperature.value + "°F";
-    descriptionEl.innerHTML = weather.description;
-    iconEl.innerHTML = `<img src="assets/icons/${weather.icon}.png"/>`;
-    cityEl.innerHTML = weather.city;
+    $(temperature).html(`${temperature.value}°F`)
+    $(description).html(`${weather.description}`)
+    $(icon).html(`<img src="assets/icons/${weather.icon}.png"/>`)
+    $(city).html(`${weather.city}`)
 }
 // document.getElementById("submit").addEventListener("click",
 
