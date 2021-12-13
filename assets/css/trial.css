@@ -2,7 +2,7 @@
     background-color: whitesmoke;
     width: 100%;
     color: black;
-    font-family: sans-serif;
+    font-family: var(--bs-body-font-family)
     display: block;
     margin: 0 auto;
     padding: 5px;
