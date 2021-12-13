@@ -10,10 +10,9 @@ weather.temperature = {
 function displayWeather() {
     temperatureEl.innerHTML = temperature.value + "°F";
     descriptionEl.innerHTML = weather.description;
-    iconEl.innerHTML = `<img src="assets/icons/${weather.icon}.png"/>`;
+    iconEl.innerHTML = `<img src="assets/icons/${weather.icon}.svg"/>`;
     cityEl.innerHTML = weather.city;
 }
-// document.getElementById("submit").addEventListener("click",
 
 function switchPage() {
     var zipCode = document.getElementById("zipCode");
