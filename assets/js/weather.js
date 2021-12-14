@@ -3,15 +3,15 @@ const descriptionEl = document.getElementById("description");
 const iconEl = document.getElementById("icon");
 const cityEl = document.getElementById("city");
 
-const weather = data; 
+const weather = data;
 weather.temperature = {
     unit: "fahrenheit",
 };
 function displayWeather() {
-    $(temperature).html(`${temperature.value}°F`)
-    $(description).html(`${weather.description}`)
-    $(icon).html(`<img src="assets/icons/${weather.icon}.svg"/>`)
-    $(city).html(`${weather.city}`)
+    $(temperature).html(`${temperature.value}°F`);
+    $(description).html(`${weather.description}`);
+    $(icon).html(`<img src="assets/icons/${weather.icon}.svg"/>`);
+    $(city).html(`${weather.city}`);
 }
 
 function switchPage() {
@@ -53,3 +53,9 @@ function fetchWeather() {
             localStorage.setItem("search", main);
         });
 }
+
+let fade = () => {
+    setTimeout(() => {
+        $("#logo").fadeOut(2000, "swing");
+    }, 2000);
+};
