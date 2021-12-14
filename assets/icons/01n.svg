@@ -1,1 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="a" x1="21.92" x2="38.52" y1="18.75" y2="47.52" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#86c3db"/><stop offset=".45" stop-color="#86c3db"/><stop offset="1" stop-color="#5eafcf"/><animateTransform attributeName="gradientTransform" dur="10s" repeatCount="indefinite" type="rotate" values="5 32 32; -15 32 32; 5 32 32"/></linearGradient></defs><path fill="url(#a)" stroke="#72b9d5" stroke-linecap="round" stroke-linejoin="round" stroke-width=".5" d="M46.66 36.2a16.66 16.66 0 0 1-16.78-16.55 16.29 16.29 0 0 1 .55-4.15A16.56 16.56 0 1 0 48.5 36.1c-.61.06-1.22.1-1.84.1z"><animateTransform attributeName="transform" dur="10s" repeatCount="indefinite" type="rotate" values="-5 32 32; 15 32 32; -5 32 32"/></path></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFC50D;}
+	.st1{fill:url(#SVGID_1_);stroke:#72B9D5;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;}
+</style>
+<polygon class="st0" points="53.6,37 50.4,36.5 48.2,38.9 47.6,35.6 44.7,34.3 47.6,32.8 48,29.5 50.3,31.8 53.5,31.2 52,34.1 "/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="22.0668" y1="47.3347" x2="38.6668" y2="18.5647" gradientTransform="matrix(1 0 0 -1 0 66)">
+	<stop  offset="0" style="stop-color:#86C3DB"/>
+	<stop  offset="0.45" style="stop-color:#86C3DB"/>
+	<stop  offset="1" style="stop-color:#5EAFCF"/>
+</linearGradient>
+<path class="st1" d="M46.7,36.2c-9.2,0.1-16.7-7.3-16.8-16.5c0,0,0,0,0,0c0-1.4,0.2-2.8,0.5-4.1C21.4,16.6,14.9,24.9,16,34
+	s9.4,15.5,18.5,14.4c6.7-0.8,12.3-5.7,14-12.3C47.9,36.2,47.3,36.2,46.7,36.2z">
+<animateTransform  accumulate="none" additive="replace" attributeName="transform" calcMode="linear" dur="10s" fill="remove" repeatCount="indefinite" restart="always" type="rotate" values="-5 32 32; 15 32 32; -5 32 32">
+		</animateTransform>
+</path>
+<polygon class="st0" points="34.4,13.9 35.2,15.5 37,15.8 35.7,17.1 36,18.9 34.4,18 32.7,18.9 33,17.1 31.7,15.8 33.5,15.5 "/>
+<polygon class="st0" points="13.8,39.9 18.4,43.1 23.7,41.2 22,46.5 25.4,51 19.8,51 16.7,55.7 14.9,50.4 9.5,48.8 14,45.5 "/>
+</svg>
