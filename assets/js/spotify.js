@@ -22,8 +22,8 @@ let getToken = () => {
                 "Basic N2EwZjM3OTEzZWU3NDExYTkxNzYzMTQxZDEzODEwYjU6NmVlOTc4MjJjMTg2NDZkMjg5MGYyOGVjOGMwNzFiNDA=", // base64 encoded from Postman
             "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
-        redirect_uri: redirectUri,
-        code: code,
+        // redirect_uri: redirectUri,
+        // code: code,
         body: "grant_type=client_credentials", // oauth with PKCE preferred
     })
         .then(response => response.json())
