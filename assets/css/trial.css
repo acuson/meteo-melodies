@@ -1,16 +1,13 @@
 .weather-container {
-    /* background-color: whitesmoke; */
+    background-color: whitesmoke;
     width: 100%;
     color: black;
-    font-family: var(--bs-body-font-family)
+    font-family: sans-serif;
     display: block;
     margin: 0 auto;
     padding: 5px;
     align-items: center;
     justify-content: center;
-    vertical-align: middle;
-    font-family: 'Source Sans 3', sans-serif;
-
 }
 
 #description {
@@ -18,28 +15,23 @@
     text-align: center;
     font-size: 16px;
     /* padding: 3px; */
-    color: yellow;
+    color: navy;
 }
 
 #city {
-    /* text-align: center; */
-    font-size: 25px;
+    text-align: center;
+    font-size: 20px;
     color: navy;
-    font-weight:bold;
 }
 
 #temperature {
-    font-size: 35px;
-    /* float: right; */
+    font-size: 40px;
+    float: right;
     color: navy;
     display: inline-flex;
-    font-weight:bold;
 }
 
 #icon {
     text-align: center;
     font-size: 60px;
-    width:100%;
-    height:auto;
-    size: contain;
 }

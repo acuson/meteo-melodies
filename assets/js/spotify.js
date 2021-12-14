@@ -7,9 +7,9 @@ let authorize = () => {
 function getCode() {
     //  Help from this YouTube video: https://www.youtube.com/watch?v=1vR3m0HupGI&t=636s
     let code = null;
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString); // Constructor
-    code = urlParams.get("code");
+    const queryString = window.location.search; // Grabs querystring in UR; everythign after '?'
+    const urlParams = new URLSearchParams(queryString); // New URLSearchParams instance; DOM object constructor
+    code = urlParams.get("code"); // Returns the first value associated with the given search parameter, which is code={...}
     getToken(code);
 }
 
@@ -93,22 +93,17 @@ $(".playlists").click(e => {
 });
 
 function selectedPlaylist(uri, playlistName) {
-    
-    $('#title').html(`Playing "${playlistName}"`)
+    $("#title").html(`Playing "${playlistName}"`);
 
     $(".player").html(
         `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="250px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
-        
-
     );
-    
-    $('#recs').css('visibility', 'hidden')
-    $('#player').css('visibility', 'visible')
+
+    $("#recs").css("visibility", "hidden");
+    $("#player").css("visibility", "visible");
 }
 
-function diffPlaylist(){
-    $('#recs').css('visibility', 'visible')
-    $('#player').css('visibility', 'hidden')
+function diffPlaylist() {
+    $("#recs").css("visibility", "visible");
+    $("#player").css("visibility", "hidden");
 }
-
-
