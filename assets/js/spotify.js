@@ -1,5 +1,5 @@
 const clientId = "7a0f37913ee7411a91763141d13810b5";
-const redirectUri = "http://127.0.0.1:5500/recsPage.html"; //Will need to be Github page
+const redirectUri = "http://127.0.0.1:5500/recsPage.html"; // Will need to be Github page
 let authorize = () => {
     location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
 };
@@ -7,13 +7,14 @@ let authorize = () => {
 function getCode() {
     //  Help from this YouTube video: https://www.youtube.com/watch?v=1vR3m0HupGI&t=636s
     let code = null;
-    const queryString = window.location.search; // Grabs querystring in UR; everythign after '?'
+    const queryString = window.location.search; // Grabs querystring in URL; everything after '?'
     const urlParams = new URLSearchParams(queryString); // New URLSearchParams instance; DOM object constructor
     code = urlParams.get("code"); // Returns the first value associated with the given search parameter, which is code={...}
-    getToken(code);
+    return code;
 }
 
-let getToken = code => {
+let getToken = () => {
+    let code = getCode();
     fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
