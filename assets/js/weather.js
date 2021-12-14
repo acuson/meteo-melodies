@@ -10,10 +10,9 @@ weather.temperature = {
 function displayWeather() {
     $(temperature).html(`${temperature.value}°F`)
     $(description).html(`${weather.description}`)
-    $(icon).html(`<img src="assets/icons/${weather.icon}.png"/>`)
+    $(icon).html(`<img src="assets/icons/${weather.icon}.svg"/>`)
     $(city).html(`${weather.city}`)
 }
-// document.getElementById("submit").addEventListener("click",
 
 function switchPage() {
     var zipCode = document.getElementById("zipCode");
