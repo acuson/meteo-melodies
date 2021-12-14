@@ -15,20 +15,21 @@
     text-align: center;
     font-size: 16px;
     /* padding: 3px; */
-    color:#f9e1a2;
+    color:#fbdb24
+    ;
 }
 
 #city {
     /* text-align: center; */
     font-size: 25px;
-    color: #254a87;
+    color: #216ae0;
     font-weight:bold;
 }
 
 #temperature {
     font-size: 35px;
     /* float: right; */
-    color: #254a87;
+    color: #216ae0;
     display: inline-flex;
     font-weight:bold;
 }
