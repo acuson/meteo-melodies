@@ -13,23 +13,22 @@
         <link rel="stylesheet" href="./assets/css/bootstrapQuartz.css" />
         <link rel="stylesheet" href="./assets/css/trial.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@1,300&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@1,300&display=swap" rel="stylesheet">
+
         <title>MeteoMelodies</title>
     </head>
     <body onload="fetchWeather(); delayPlaylists()">
-        <div class="container d-flex justify-content-center mb-5 mt-5">
-            <div class="card col-lg-10 my-auto">
-                <h1 class="mt-2 text-center">Meteo Melodies</h1>
+        <!-- Recs Card -->
+        <div class="container d-flex justify-content-center mb-5 mt-5 page" style="position: relative" id="recs">
+            <div class="card col-lg-10 my-auto recs" style="position: absolute">
+                <h1 class="mt-2 text-center" style="font-family: Pacifico; font-size:50px;">MeteoMelodies</h1>
                 <div class="row">
-                    <div class="col-lg-3 m-2">
-                        <h2>Weather</h2>
+                    <div class="col-lg-3 col-sm-11 m-2">
+                        <h2 class="text-center">Weather</h2>
 
-                        <div class="d-sm-flex d-lg-inline">
+                        <div class="d-sm-flex d-lg-inline" style="width:90%">
                             <div class="container weather-container">
                                 <div id="data"></div>
                                 <div id="temperature"></div>
@@ -39,10 +38,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 m-2">
-                        <h2>Weather Playlist Recommendations</h2>
-                        <p>
-                            Here are some spotify curated playlist based on your
+                    <div class="col-lg-8 col-sm-11 m-2">
+                        <h2 class="text-center" style="font-size:30px;">Weather Playlist Recommendations</h2>
+                        <p class="text-center">
+                            Here are some spotify playlists based on your
                             weather conditions! Select a playlist to listen.
                         </p>
                         <div
@@ -65,7 +64,77 @@
                     Pick Another City
                 </button>
             </div>
+            <!-- Player Card -->
+            <div class="card col-lg-10 my-auto" id="player" style="visibility: hidden;">
+                <h1 class="mt-2 text-center" style="font-family: Pacifico; font-size:50px;">MeteoMelodies</h1>
+                <div class="row">
+                    <div class="col-lg-3 col-sm-10 m-2">
+                        <h2 class="text-center">Weather</h2>
+                        <div class="d-sm-flex d-lg-inline">
+                            <div class="container weather-container">
+                                <div id="data"></div>
+                                <div id="temperature"></div>
+                                <div id="icon"></div>
+                                <div id="description"></div>
+                                <div id="city"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-sm-11 m-2">
+                        <h2 id="title" class="text-center"></h2>
+                        <div class="col-lg-11 my-2 mr-2 d-flex justify-content-center">
+                            <div class="player" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info m-2" onclick="diffPlaylist()">
+                    Pick a Different Playlist
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-info m-2"
+                    onclick="window.location.href='./start.html'"
+                >
+                    Pick Another City
+                </button>
+            </div>
         </div>
+        <!-- Container two -->
+        <!-- <div class="container d-flex justify-content-center mb-5 mt-5 page" id="player">
+            <div class="card col-lg-10 my-auto">
+                <h1 class="mt-2 text-center">Meteo Melodies</h1>
+                <div class="row">
+                    <div class="col-lg-3 m-2">
+                        <h2 class="text-center">Weather</h2>
+                        <div class="d-sm-flex d-lg-inline">
+                            <div class="container weather-container">
+                                <div id="data"></div>
+                                <div id="temperature"></div>
+                                <div id="icon"></div>
+                                <div id="description"></div>
+                                <div id="city"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 m-2">
+                        <h2>Now Playing "Playlist Title"</h2>
+                        <div class="col-lg-8 m-2 d-flex justify-content-center">
+                            <div class="player" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-info m-2" onclick="history.back()='./index.html'">
+                    Pick a Different Playlist
+                </button>
+                <button
+                    type="button"
+                    class="btn btn-info m-2"
+                    onclick="='./start.html'"
+                >
+                    Pick Another City
+                </button>
+            </div>
+        </div> -->
 
         <script
             src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -75,5 +144,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="./assets/js/weather.js"></script>
         <script src="./assets/js/spotify.js"></script>
+        <script src="./assets/js/player.js"></script>
+      <!--   <script src="./assets/js/display.js"></script> -->
     </body>
 </html>

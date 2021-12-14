@@ -3,15 +3,15 @@ const descriptionEl = document.getElementById("description");
 const iconEl = document.getElementById("icon");
 const cityEl = document.getElementById("city");
 
-const weather = data;
+const weather = data; 
 weather.temperature = {
     unit: "fahrenheit",
 };
 function displayWeather() {
-    temperatureEl.innerHTML = temperature.value + "°F";
-    descriptionEl.innerHTML = weather.description;
-    iconEl.innerHTML = `<img src="assets/icons/${weather.icon}.svg"/>`;
-    cityEl.innerHTML = weather.city;
+    $(temperature).html(`${temperature.value}°F`)
+    $(description).html(`${weather.description}`)
+    $(icon).html(`<img src="assets/icons/${weather.icon}.svg"/>`)
+    $(city).html(`${weather.city}`)
 }
 
 function switchPage() {
