@@ -97,7 +97,7 @@ function selectedPlaylist(uri, playlistName) {
     $('#title').html(`Playing "${playlistName}"`)
 
     $(".player").html(
-        `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="250px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+        `<iframe class='mt=2' src="https://open.spotify.com/embed/${uri}" width="100%" height="350px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
         
 
     );
