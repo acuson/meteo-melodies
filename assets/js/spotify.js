@@ -69,19 +69,16 @@ function queryPlaylists() {
         })
         .then(data => {
             console.log(data.playlists.items);
-            
 
             var playlists = data.playlists.items;
             playlists.forEach(i => {
-
                 var fullUri = i.uri;
-                var uriArr = fullUri.split(':')
-                uriArr.shift()
-                var uri =uriArr.join('/')
-                console.log(uri)
-                
+                var uriArr = fullUri.split(":");
+                uriArr.shift();
+                var uri = uriArr.join("/");
+                // console.log(uri);
 
-                output += `<img id='img' src="${i.images[0].url}" class="m-1" data-uri="${uri}" style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
+                output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} data-name=${i.name} style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
             });
             $(".playlists").html(output); // Renders array of playlists to div
         })
@@ -90,14 +87,28 @@ function queryPlaylists() {
         });
 }
 
+$(".playlists").click(e => {
+    console.log(e.target.dataset.uri);
+    selectedPlaylist(e.target.dataset.uri, e.target.dataset.name);
+});
 
-function selectedPlaylist(event){
-    console.log(event.target)
-    var uri = event.target.dataset('uri')
-    console.log('hello')
-    console.log(uri)
+function selectedPlaylist(uri, playlistName) {
+    
+    $('#title').html(`Playing "${playlistName}"`)
 
-    $('.player').html = `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+    $(".player").html(
+        `<iframe src="https://open.spotify.com/embed/${uri}" width="100%" height="250px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
+        
 
-    window.location.href = '../../player.html'
+    );
+    
+    $('#recs').css('visibility', 'hidden')
+    $('#player').css('visibility', 'visible')
 }
+
+function diffPlaylist(){
+    $('#recs').css('visibility', 'visible')
+    $('#player').css('visibility', 'hidden')
+}
+
+
