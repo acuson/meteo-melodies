@@ -17,7 +17,7 @@ function displayWeather() {
 function switchPage() {
     var zipCode = document.getElementById("zipCode");
     localStorage.setItem("zip", zipCode.value);
-    window.location.href = "../../recsPage.html";
+    window.location.href = "assets/js/recsPage.html";
 }
 
 function fetchWeather() {
