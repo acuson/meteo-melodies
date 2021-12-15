@@ -6,8 +6,8 @@
 [Alyssa Cuson] | Slack name: [Alyssa Cuson] | Github : [acuson]
 [Christine Nguyen] | Slack name: [Christine Nguyen] | Github : [cnhnguyen59]
 [Kevin Lacson] | Slack name: [Kevin Lacson] | Github : [Snackonevil]
-Project Github Page: [https://github.com/acuson/meteo-melodies]
-Project Github Repo: [https://acuson.github.io/meteo-melodies/]
+Project Github Repo: [https://github.com/acuson/meteo-melodies]
+Project Github Page: [https://acuson.github.io/meteo-melodies/]
 
 ## User Story
 
