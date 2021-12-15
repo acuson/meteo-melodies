@@ -1,5 +1,6 @@
 const clientId = "7a0f37913ee7411a91763141d13810b5";
-const redirectUri = "http://127.0.0.1:5500/recsPage.html"; //Will need to be Github page
+const redirectUri = "http://127.0.0.1:5500/recsPage.html"; // Will need to be Github page
+
 let authorize = () => {
     location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
 };
@@ -7,13 +8,14 @@ let authorize = () => {
 function getCode() {
     //  Help from this YouTube video: https://www.youtube.com/watch?v=1vR3m0HupGI&t=636s
     let code = null;
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString); // Constructor
-    code = urlParams.get("code");
-    getToken(code);
+    const queryString = window.location.search; // Grabs querystring in URL; everything after '?'
+    const urlParams = new URLSearchParams(queryString); // New URLSearchParams instance; DOM object constructor
+    code = urlParams.get("code"); // Returns the first value associated with the given search parameter, which is code={...}
+    return code;
 }
 
-let getToken = code => {
+let getToken = () => {
+    // let code = getCode();
     fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
@@ -21,14 +23,12 @@ let getToken = code => {
                 "Basic N2EwZjM3OTEzZWU3NDExYTkxNzYzMTQxZDEzODEwYjU6NmVlOTc4MjJjMTg2NDZkMjg5MGYyOGVjOGMwNzFiNDA=", // base64 encoded from Postman
             "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
-        redirect_uri: redirectUri,
-        code: code,
         body: "grant_type=client_credentials", // oauth with PKCE preferred
     })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            window.sessionStorage.setItem("token", data.access_token);
+            // console.log(data);
+            queryPlaylists(data.access_token);
         })
         .catch(err => {
             console.log(err);
@@ -41,11 +41,11 @@ function delayPlaylists() {
     }, 1000);
 }
 
-function queryPlaylists() {
+function queryPlaylists(token) {
     var weatherSearch = window.localStorage.getItem("search");
     var search = weatherSearch.replace(" ", "+");
     var output = "";
-    var token = window.sessionStorage.getItem("token");
+    // var token = window.sessionStorage.getItem("token");
     console.log(search);
     fetch(
         `https://api.spotify.com/v1/search?query=${search}+weather&type=playlist&include_external=audio&offset=0&limit=50`,
@@ -93,22 +93,17 @@ $(".playlists").click(e => {
 });
 
 function selectedPlaylist(uri, playlistName) {
-    
-    $('#title').html(`Playing "${playlistName}"`)
+    $("#title").html(`Playing "${playlistName}"`);
 
     $(".player").html(
         `<iframe class='mt=2' src="https://open.spotify.com/embed/${uri}" width="100%" height="350px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
-        
-
     );
-    
-    $('#recs').css('visibility', 'hidden')
-    $('#player').css('visibility', 'visible')
+
+    $("#recs").css("visibility", "hidden");
+    $("#player").css("visibility", "visible");
 }
 
-function diffPlaylist(){
-    $('#recs').css('visibility', 'visible')
-    $('#player').css('visibility', 'hidden')
+function diffPlaylist() {
+    $("#recs").css("visibility", "visible");
+    $("#player").css("visibility", "hidden");
 }
-
-
