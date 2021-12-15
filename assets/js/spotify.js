@@ -1,39 +1,22 @@
-const clientId = "7a0f37913ee7411a91763141d13810b5";
-const redirectUri = "http://127.0.0.1:5500/recsPage.html"; // Will need to be Github page
-
-let authorize = () => {
-    location.href = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}`;
-};
-
-function getCode() {
-    //  Help from this YouTube video: https://www.youtube.com/watch?v=1vR3m0HupGI&t=636s
-    let code = null;
-    const queryString = window.location.search; // Grabs querystring in URL; everything after '?'
-    const urlParams = new URLSearchParams(queryString); // New URLSearchParams instance; DOM object constructor
-    code = urlParams.get("code"); // Returns the first value associated with the given search parameter, which is code={...}
-    return code;
-}
-
-let getToken = () => {
-    // let code = getCode();
+// oauth with PKCE preferred
+function getToken() {
     fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
         headers: {
             Authorization:
-                "Basic N2EwZjM3OTEzZWU3NDExYTkxNzYzMTQxZDEzODEwYjU6NmVlOTc4MjJjMTg2NDZkMjg5MGYyOGVjOGMwNzFiNDA=", // base64 encoded from Postman
+                "Basic N2EwZjM3OTEzZWU3NDExYTkxNzYzMTQxZDEzODEwYjU6NmVlOTc4MjJjMTg2NDZkMjg5MGYyOGVjOGMwNzFiNDA=", // base64 encoded
             "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
         },
-        body: "grant_type=client_credentials", // oauth with PKCE preferred
+        body: "grant_type=client_credentials",
     })
         .then(response => response.json())
         .then(data => {
-            // console.log(data);
             queryPlaylists(data.access_token);
         })
         .catch(err => {
             console.log(err);
         });
-};
+}
 
 function delayPlaylists() {
     setTimeout(() => {
@@ -45,8 +28,6 @@ function queryPlaylists(token) {
     var weatherSearch = window.localStorage.getItem("search");
     var search = weatherSearch.replace(" ", "+");
     var output = "";
-    // var token = window.sessionStorage.getItem("token");
-    console.log(search);
     fetch(
         `https://api.spotify.com/v1/search?query=${search}+weather&type=playlist&include_external=audio&offset=0&limit=50`,
         {
@@ -76,7 +57,6 @@ function queryPlaylists(token) {
                 var uriArr = fullUri.split(":");
                 uriArr.shift();
                 var uri = uriArr.join("/");
-                // console.log(uri);
 
                 output += `<img src="${i.images[0].url}" class= "m-1" data-uri=${uri} data-name=${i.name} style="height: 150px; width: 150px" onclick="selectedPlaylist(this)"/>`;
             });
