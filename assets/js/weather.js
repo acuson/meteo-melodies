@@ -54,8 +54,8 @@ function fetchWeather() {
         });
 }
 
-let fade = () => {
-    setTimeout(() => {
-        $("#logo").fadeOut(2000, "swing");
-    }, 2000);
-};
+// let fade = () => {
+//     setTimeout(() => {
+//         $("#logo").fadeOut(2000, "swing");
+//     }, 2000);
+// };
