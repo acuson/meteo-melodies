@@ -1,4 +1,5 @@
 // oauth with PKCE preferred
+
 function getToken() {
     fetch("https://accounts.spotify.com/api/token", {
         method: "POST",
