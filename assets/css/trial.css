@@ -1,18 +1,18 @@
-/* .weather-container {
-    width: 100%;
+ /*.weather-container {
+     width: 100%; 
     font-family: var(--bs-body-font-family);
-    display: block;
+    /* display: block;
     margin: 0 auto;
     padding: 5px;
     align-items: center;
     justify-content: center;
-    border-radius: 8px;
+    border-radius: 8px; 
 }
 
-#description {
+/* #description {
     display: inline-flex;
     text-align: center;
-    font-size: 16px;
+    font-size: 16px; */
     /* padding: 3px; 
     color: #fbdb24;
 }
@@ -26,12 +26,23 @@
 
 #temperature {
     font-size: 35px;
-    /* float: right; 
+     float: right; 
     color: #216ae0;
     display: inline-flex;
 }
 
 #icon {
-    /* text-align: center; 
-   /*  font-size: 60px; 
-} */
+    text-align: center; 
+     font-size: 60px; 
+}*/
+/* 
+ /* Smartphones (portrait) ----------- 
+ @media only screen and (max-device-width : 480px) and (orientation: portrait) {
+    .media {margin:0;
+            padding:0;
+            position:absolute;}
+    .card {margin:0;
+        padding:0;
+        position:relative;}
+    }
+ */

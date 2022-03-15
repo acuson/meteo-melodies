@@ -25,11 +25,11 @@
     <body onload="fetchWeather(); delayPlaylists()">
         <!-- Recs Card -->
         <div
-            class="d-flex justify-content-center mb-5 mt-5"
+            class="media d-flex justify-content-center mb-5 mt-5"
             style="position: relative"
             id="recs"
         >
-            <div class="card container col-lg-10 recs" style="position: absolute;">
+            <div class="card container col-lg-12 recs" style="position: absolute;">
                 <h1
                     class="mt-2 text-center"
                     style="font-family: Pacifico; font-size: 50px"
@@ -37,19 +37,21 @@
                     MeteoMelodies
                 </h1>
                 <div class="row">
-                    <div class="col col-lg-3 col-sm-11 m-2">
+                    <div class="col-lg-3 col-sm-11 m-2">
                         <h2 class="text-center">Weather</h2>
-                        <div class="d-sm-flex d-lg-inline" style="width: 90%">
-                            <div class="container p-2 weather-container">
+                        <div class="d-lg-inline" style="width: 90%">
+                            <div class="p-2 d-flex-wrap weather-container">
                                 <div id="data"></div>
-                                <div id="temperature"></div>
-                                <div id="icon"></div>
-                                <div id="description"></div>
-                                <div id="city"></div>
+                                <div class="col-sm-6 col-lg-12" id="icon" style="size:contain;"></div>
+                                <div class="weather-desc col-sm-6 col-lg-12 d-flex-column">
+                                    <div class="text-center" id="city" style="font-size: 32px;"></div>
+                                    <div class="text-center" id="temperature" style="font-size: 24px;"></div>
+                                    <div class="text-center" id="description" style="font-size: 16px;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col col-lg-8 col-sm-11 m-2">
+                    <div class="col-lg-8 col-sm-11 m-2">
                         <h2 class="text-center" style="font-size: 30px">
                             Weather Playlist Recommendations
                         </h2>
@@ -58,14 +60,13 @@
                             weather conditions! Select a playlist to listen.
                         </p>
                         <div
-                            class="playlists d-flex-column align-items-center"
+                            class="playlists text-center d-flex-column align-items-center"
                             style="
                                 max-height: 250px;
                                 overflow: scroll;
                                 overflow-x: hidden;
                             "
                         >
-                            <!--images not centering in div, scroll bar extends past card when minimized-->
                         </div>
                     </div>
                 </div>
@@ -79,26 +80,28 @@
             </div>
             <!-- Player Card -->
             <div
-                class="card col-lg-10 my-auto"
+                class="card container col-lg-12"
                 id="player"
                 style="visibility: hidden"
             >
                 <h1
                     class="mt-2 text-center"
-                    style="font-family: Pacifico; font-size: 8vw"
+                    style="font-family: Pacifico; font-size: 50px"
                 >
                     MeteoMelodies
                 </h1>
                 <div class="row">
-                    <div class="col-lg-3 col-sm-10 m-2">
+                    <div class="col-lg-3 col-sm-11 m-2">
                         <h2 class="text-center">Weather</h2>
-                        <div class="d-sm-flex d-lg-inline">
-                            <div class="container weather-container">
+                        <div class="d-lg-inline" style="width: 90%">
+                            <div class="p-2 d-flex-wrap weather-container">
                                 <div id="data"></div>
-                                <div id="temperature"></div>
-                                <div id="icon"></div>
-                                <div id="description"></div>
-                                <div id="city"></div>
+                                <div class="col-sm-6 col-lg-12" id="icon" style="size:contain;"></div>
+                                <div class="weather-desc col-sm-6 col-lg-12 d-flex-column">
+                                    <div class="text-center" id="city" style="font-size: 32px;"></div>
+                                    <div class="text-center" id="temperature" style="font-size: 24px;"></div>
+                                    <div class="text-center" id="description" style="font-size: 16px;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
